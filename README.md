@@ -31,6 +31,7 @@
 ├── eval_ppl.py           # PPL 计算（滑动窗口 + KV Cache）
 ├── kv_cache.py           # KV 压缩方法实现
 ├── pg19_sample.txt       # PG19 长文本样本
+├── requirements.txt      # 环境依赖
 ├── tpot_pg19.png         # 长文本 TPOT 曲线
 ├── tpot_wikitext.png     # 短文本 TPOT 曲线
 └── README.md
@@ -40,12 +41,13 @@
 
 ## 环境依赖
 
-建议使用 Python ≥ 3.9
+- 建议使用 Python ≥ 3.9
+- 仅使用cpu
 
 安装依赖：
 
 ```bash
-pip install torch transformers datasets matplotlib tqdm
+pip install -r requirements.txt
 ```
 
 ---
@@ -136,6 +138,8 @@ tpot_wikitext.png
 
 #### PG19（长文本）
 
+![PG19 TPOT](tpot_pg19.png)
+
 * Baseline：TPOT 随序列增长略有波动
 * Truncate / Streaming：TPOT 更稳定
 * Streaming 略优于 Truncate
@@ -145,6 +149,8 @@ tpot_wikitext.png
 ---
 
 #### WikiText（短文本）
+
+![WikiText TPOT](tpot_wikitext.png)
 
 * 三条曲线几乎重合
 * 压缩未生效
